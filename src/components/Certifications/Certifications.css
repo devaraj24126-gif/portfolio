@@ -1,0 +1,171 @@
+.certifications{
+
+    padding:120px 8%;
+
+    position:relative;
+
+}
+
+.certifications::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    background:#8b5cf6;
+
+    filter:blur(180px);
+
+    opacity:.15;
+
+    right:-120px;
+
+    top:100px;
+
+    z-index:-1;
+
+}
+
+.cert-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.cert-title span{
+
+    color:#a855f7;
+
+    letter-spacing:4px;
+
+    font-size:14px;
+
+}
+
+.cert-title h2{
+
+    color:white;
+
+    font-size:48px;
+
+    margin-top:15px;
+
+}
+
+.cert-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+}
+
+.cert-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.cert-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,.1),
+    0 0 45px rgba(168,85,247,.45);
+
+}
+
+.cert-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.cert-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.cert-info{
+
+    padding:22px;
+
+}
+
+.cert-info h3{
+
+    color:white;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+}
+
+.cert-info p{
+
+    color:#c084fc;
+
+    margin-bottom:10px;
+
+    font-size:17px;
+
+}
+
+.cert-info span{
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+}
+
+@media(max-width:900px){
+
+.certifications{
+
+padding:100px 6%;
+
+}
+
+.cert-title h2{
+
+font-size:38px;
+
+}
+
+.cert-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
