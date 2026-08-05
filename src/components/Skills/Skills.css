@@ -1,6 +1,6 @@
 .skills{
 
-    padding:120px 8%;
+    padding:160px 6% 120px;
 
     position:relative;
 
@@ -38,38 +38,42 @@
 
     display:grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(5,1fr);
 
-    gap:30px;
+    gap:25px;
+
+    width:100%;
 
 }
 
 .skill-card{
 
-    height:180px;
+    min-height:170px;
 
     border-radius:24px;
 
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.14);
 
     backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-    border:1px solid rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.22);
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
+    text-align:center;
+
+    padding:15px;
 
     transition:.4s;
 
     cursor:pointer;
 
     box-shadow:
-    0 0 15px rgba(255,255,255,.08);
+        0 8px 32px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.12);
 
 }
 
@@ -77,17 +81,31 @@
 
     transform:translateY(-10px);
 
+    background:rgba(255,255,255,.18);
+
+    border:1px solid rgba(255,255,255,.28);
+
     box-shadow:
-    0 0 25px rgba(255,255,255,.18),
-    0 0 45px rgba(168,85,247,.45);
+        0 0 30px rgba(255,255,255,.18),
+        0 0 55px rgba(168,85,247,.45);
 
 }
 
-.skill-card i{
+.skill-card i,
+.skill-card img,
+.skill-card svg{
+
+    width:70px;
+
+    height:70px;
 
     font-size:70px;
 
     margin-bottom:18px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
 
 }
 
@@ -95,38 +113,52 @@
 
     color:white;
 
-    font-size:20px;
+    font-size:18px;
 
     font-weight:600;
 
-}
+    margin:0;
 
-@media(max-width:1100px){
+    min-height:24px;
 
-.skills-grid{
+    display:flex;
 
-grid-template-columns:repeat(3,1fr);
+    align-items:center;
 
-}
-
-}
-
-@media(max-width:800px){
-
-.skills-grid{
-
-grid-template-columns:repeat(2,1fr);
+    justify-content:center;
 
 }
 
+@media(max-width:1300px){
+    .skills-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
 }
 
-@media(max-width:550px){
-
-.skills-grid{
-
-grid-template-columns:1fr;
-
+@media(max-width:1000px){
+    .skills-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
 }
+
+@media(max-width:700px){
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+.react-icon{
+
+    font-size:70px;
+
+    color:#22c55e;
+
+    margin-bottom:18px;
 
 }

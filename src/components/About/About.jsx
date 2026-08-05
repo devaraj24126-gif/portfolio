@@ -1,5 +1,10 @@
 import "./About.css";
-import { FaGraduationCap, FaLaptopCode, FaDatabase, FaChartLine } from "react-icons/fa";
+import {
+  FaGraduationCap,
+  FaLaptopCode,
+  FaDatabase,
+  FaServer,
+} from "react-icons/fa";
 
 function About() {
   return (
@@ -17,13 +22,30 @@ function About() {
         <div className="about-text">
 
           <p>
-            I'm a passionate MCA student with a strong interest in Data Analytics,
-            Python Development, Oracle Database and React.
+            I'm an MCA student passionate about Full Stack Development,
+            Python Programming, Data Analytics, and Cloud Computing,
+            with a strong interest in building scalable applications
+            and solving real-world business problems.
           </p>
 
           <p>
-            I enjoy building modern applications, solving real-world problems,
-            and continuously learning new technologies.
+            I have hands-on experience developing modern web applications
+            using React, FastAPI, Python, PostgreSQL, Oracle Database,
+            SQLAlchemy, REST APIs, JWT Authentication, Git, GitHub,
+            Vercel, and Render.
+          </p>
+
+          <p>
+            I also enjoy working with SQL, Power BI, Excel, and Python
+            to analyze data, build interactive dashboards, and transform
+            raw data into meaningful business insights.
+          </p>
+
+          <p>
+            My goal is to continuously learn new technologies, build
+            impactful projects, and develop secure, efficient, and
+            user-focused software solutions across software development,
+            data analytics, and cloud technologies.
           </p>
 
         </div>
@@ -37,16 +59,16 @@ function About() {
 
           <div className="box">
             <FaLaptopCode />
-            <h3>React Developer</h3>
+            <h3>Full Stack Development</h3>
+          </div>
+
+          <div className="box">
+            <FaServer />
+            <h3>Python & Cloud</h3>
           </div>
 
           <div className="box">
             <FaDatabase />
-            <h3>Oracle SQL</h3>
-          </div>
-
-          <div className="box">
-            <FaChartLine />
             <h3>Data Analytics</h3>
           </div>
 

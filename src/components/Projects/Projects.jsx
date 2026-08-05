@@ -1,54 +1,149 @@
 import "./Projects.css";
-import { useState, useEffect } from "react";
+import {
+    useState,
+    useEffect
+} from "react";
 
 import retail1 from "../../assets/projects/retail1.png";
 import retail2 from "../../assets/projects/retail2.png";
 import retail3 from "../../assets/projects/retail3.png";
 import fmcg from "../../assets/projects/fmcg.png";
 
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import login from "../../assets/projects/vertexops/login.png";
+import dashboard from "../../assets/projects/vertexops/dashboard.png";
+import users from "../../assets/projects/vertexops/users.png";
+import adminTickets from "../../assets/projects/vertexops/admin-tickets.png";
+import adminProfile from "../../assets/projects/vertexops/admin-profile.png";
+import employeeDashboard from "../../assets/projects/vertexops/employee-dashboard.png";
+import employeeTickets from "../../assets/projects/vertexops/employee-tickets.png";
+import employeeProfile from "../../assets/projects/vertexops/employee-profile.png";
+import api from "../../assets/projects/vertexops/api.png";
+
+import {
+    FaGithub,
+    FaExternalLinkAlt,
+    FaCode,
+} from "react-icons/fa";
 
 import ImageViewer from "../ImageViewer/ImageViewer";
 
 function Projects() {
 
-  const retailImages = [retail1, retail2, retail3];
+    /* ===========================
+       IMAGE ARRAYS
+    =========================== */
 
-  const [currentRetailImage, setCurrentRetailImage] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+    const vertexImages = [
+        login,
+        dashboard,
+        users,
+        adminTickets,
+        employeeDashboard,
+        employeeTickets,
+        adminProfile,
+        employeeProfile,
+        api,
+    ];
 
-  const [viewerImages, setViewerImages] = useState([]);
-  const [viewerIndex, setViewerIndex] = useState(0);
-  const [viewerOpen, setViewerOpen] = useState(false);
+    const retailImages = [
+        retail1,
+        retail2,
+        retail3,
+    ];
 
-  useEffect(() => {
+    /* ===========================
+       STATES
+    =========================== */
 
-    if (isPaused) return;
+    const [vertexIndex, setVertexIndex] = useState(0);
 
-    const interval = setInterval(() => {
+    const [retailIndex, setRetailIndex] = useState(0);
 
-      setCurrentRetailImage((prev) => (prev + 1) % retailImages.length);
+    const [pauseVertex, setPauseVertex] = useState(false);
 
-    }, 3000);
+    const [pauseRetail, setPauseRetail] = useState(false);
 
-    return () => clearInterval(interval);
+    const [viewerImages, setViewerImages] = useState([]);
 
-  }, [isPaused]);
+    const [viewerIndex, setViewerIndex] = useState(0);
 
-  const openRetailViewer = () => {
-    setViewerImages(retailImages);
-    setViewerIndex(currentRetailImage);
-    setViewerOpen(true);
-  };
+    const [viewerOpen, setViewerOpen] = useState(false);
 
-  const openFMCGViewer = () => {
-    setViewerImages([fmcg]);
-    setViewerIndex(0);
-    setViewerOpen(true);
-  };
+    /* ===========================
+       AUTO SLIDER
+    =========================== */
 
-  return (
-    <>
+    useEffect(() => {
+
+        if (pauseVertex) return;
+
+        const interval = setInterval(() => {
+
+            setVertexIndex((prev) =>
+
+                (prev + 1) % vertexImages.length
+
+            );
+
+        }, 3000);
+
+        return () => clearInterval(interval);
+
+    }, [pauseVertex]);
+
+    useEffect(() => {
+
+        if (pauseRetail) return;
+
+        const interval = setInterval(() => {
+
+            setRetailIndex((prev) =>
+
+                (prev + 1) % retailImages.length
+
+            );
+
+        }, 3000);
+
+        return () => clearInterval(interval);
+
+    }, [pauseRetail]);
+
+    /* ===========================
+       IMAGE VIEWER
+    =========================== */
+
+    const openVertexViewer = () => {
+
+        setViewerImages(vertexImages);
+
+        setViewerIndex(vertexIndex);
+
+        setViewerOpen(true);
+
+    };
+
+    const openRetailViewer = () => {
+
+        setViewerImages(retailImages);
+
+        setViewerIndex(retailIndex);
+
+        setViewerOpen(true);
+
+    };
+
+    const openFMCGViewer = () => {
+
+        setViewerImages([fmcg]);
+
+        setViewerIndex(0);
+
+        setViewerOpen(true);
+
+    };
+    return (
+        <>
       <section className="projects" id="projects" data-aos="fade-up">
 
         <div className="projects-title">
@@ -58,18 +153,220 @@ function Projects() {
 
         <div className="projects-grid">
 
-          {/* ================= Retail ================= */}
+          {/* =======================
+              FEATURED PROJECT (VertexOps)
+          ======================== */}
+
+          <div className="featured-card">
+
+            <div
+              className="featured-image"
+              onMouseEnter={() => setPauseVertex(true)}
+              onMouseLeave={() => setPauseVertex(false)}
+            >
+
+              <img
+                src={vertexImages[vertexIndex]}
+                alt="VertexOps"
+              />
+
+              <div className="slider-controls">
+
+                <button
+                  className="slider-nav"
+                  onClick={() =>
+                    setVertexIndex(
+                      (vertexIndex - 1 + vertexImages.length) %
+                        vertexImages.length
+                    )
+                  }
+                >
+                  ❮
+                </button>
+
+                <div className="slider-dots">
+
+                  {vertexImages.map((_, index) => (
+
+                    <span
+                      key={index}
+                      className={
+                        vertexIndex === index
+                          ? "dot active"
+                          : "dot"
+                      }
+                    ></span>
+
+                  ))}
+
+                </div>
+
+                <button
+                  className="slider-nav"
+                  onClick={() =>
+                    setVertexIndex(
+                      (vertexIndex + 1) %
+                        vertexImages.length
+                    )
+                  }
+                >
+                  ❯
+                </button>
+
+              </div>
+
+            </div>
+
+            <div className="featured-content">
+
+              <span className="featured-badge">
+                ⭐ Featured Project
+              </span>
+
+              <h2>
+                VertexOps
+              </h2>
+
+              <h4>
+                Enterprise IT Ticket Management System
+              </h4>
+
+              <p>
+
+                VertexOps is a production-ready
+                <strong> Enterprise IT Ticket Management System </strong>
+
+                built to streamline IT support operations
+                through secure authentication,
+                role-based access control,
+                centralized ticket management,
+                and cloud deployment.
+
+              </p>
+
+              <p>
+
+                Developed using
+                <strong>
+
+                  React,
+                  FastAPI,
+                  Python,
+                  PostgreSQL,
+                  Oracle Database,
+                  SQLAlchemy,
+                  JWT Authentication,
+                  REST APIs,
+                  Vercel,
+                  and Render
+
+                </strong>
+
+                demonstrating modern enterprise
+                full-stack development.
+
+              </p>
+
+              <div className="feature-list">
+
+                <span>✔ JWT Authentication</span>
+
+                <span>✔ Role Based Access Control</span>
+
+                <span>✔ Ticket Lifecycle Management</span>
+
+                <span>✔ User Management</span>
+
+                <span>✔ Employee & Admin Portals</span>
+
+                <span>✔ REST APIs</span>
+
+                <span>✔ PostgreSQL Database</span>
+
+                <span>✔ Oracle Database</span>
+
+                <span>✔ Cloud Deployment</span>
+
+                <span>✔ Responsive UI</span>
+
+              </div>
+
+              <div className="project-tags">
+
+                <span>React</span>
+
+                <span>FastAPI</span>
+
+                <span>Python</span>
+
+                <span>PostgreSQL</span>
+
+                <span>Oracle</span>
+
+                <span>SQLAlchemy</span>
+
+                <span>JWT</span>
+
+                <span>REST API</span>
+
+                <span>Vercel</span>
+
+                <span>Render</span>
+
+              </div>
+
+              <div className="project-buttons">
+
+                <a
+                  href="https://github.com/devaraj24126-gif/VertexOps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub />
+                  GitHub
+                </a>
+
+                <a
+                  href="https://vertex-ops-gray.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaExternalLinkAlt />
+                  Live Demo
+                </a>
+
+                <a
+                  href="https://vertexops-api.onrender.com/docs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaCode />
+                  API Docs
+                </a>
+
+                <button onClick={openVertexViewer}>
+                  <FaExternalLinkAlt />
+                  Preview
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ================= Retail Dashboard ================= */}
 
           <div className="project-card">
 
             <div
               className="project-image"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
+              onMouseEnter={() => setPauseRetail(true)}
+              onMouseLeave={() => setPauseRetail(false)}
             >
 
               <img
-                src={retailImages[currentRetailImage]}
+                src={retailImages[retailIndex]}
                 alt="Retail Dashboard"
               />
 
@@ -80,8 +377,8 @@ function Projects() {
               <button
                 className="slider-nav"
                 onClick={() =>
-                  setCurrentRetailImage(
-                    (currentRetailImage - 1 + retailImages.length) %
+                  setRetailIndex(
+                    (retailIndex - 1 + retailImages.length) %
                       retailImages.length
                   )
                 }
@@ -96,7 +393,7 @@ function Projects() {
                   <span
                     key={index}
                     className={
-                      currentRetailImage === index
+                      retailIndex === index
                         ? "dot active"
                         : "dot"
                     }
@@ -109,8 +406,8 @@ function Projects() {
               <button
                 className="slider-nav"
                 onClick={() =>
-                  setCurrentRetailImage(
-                    (currentRetailImage + 1) %
+                  setRetailIndex(
+                    (retailIndex + 1) %
                       retailImages.length
                   )
                 }
@@ -125,9 +422,10 @@ function Projects() {
               <h3>Retail Sales Dashboard</h3>
 
               <p>
-                Interactive Power BI dashboard with KPI cards,
+                Interactive Power BI dashboard featuring KPI cards,
                 DAX measures, Power Query transformations,
-                customer insights and market analysis.
+                customer insights, sales performance,
+                and business intelligence reporting.
               </p>
 
               <div className="project-tags">
@@ -161,7 +459,7 @@ function Projects() {
 
           </div>
 
-          {/* ================= FMCG ================= */}
+          {/* ================= FMCG Dashboard ================= */}
 
           <div className="project-card">
 
@@ -179,8 +477,9 @@ function Projects() {
               <h3>FMCG Demand Forecast Dashboard</h3>
 
               <p>
-                Power BI dashboard for demand forecasting,
-                inventory analysis, promotions and business insights.
+                Power BI dashboard designed for demand forecasting,
+                inventory analysis, promotion tracking,
+                and business performance visualization.
               </p>
 
               <div className="project-tags">
@@ -226,7 +525,7 @@ function Projects() {
       />
 
     </>
-  );
+    );
 }
 
 export default Projects;

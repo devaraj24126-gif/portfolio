@@ -11,10 +11,9 @@ import {
   FaChartBar,
 } from "react-icons/fa";
 
-
 function Hero() {
   return (
-<section className="hero" id="home" data-aos="fade-up">
+    <section className="hero" id="home" data-aos="fade-up">
       <div className="glow glow1"></div>
       <div className="glow glow2"></div>
 
@@ -27,30 +26,29 @@ function Hero() {
         <h1>Devaraj P</h1>
 
         <h2 className="typing">
-
           <Typewriter
             words={[
-              "Data Analyst",
-              "Python Developer",
-              "React Developer",
-              "Power BI Developer",
-              "Oracle SQL Developer",
+              "Python Developer...",
+              "Data Analyst...",
+              "Full Stack Developer...",
+              "Cloud Enthusiast...",
+              "SQL Developer...",
+          
             ]}
             loop={0}
             cursor
             cursorStyle="|"
-            typeSpeed={90}
-            deleteSpeed={50}
+            typeSpeed={80}
+            deleteSpeed={45}
             delaySpeed={1800}
           />
-
         </h2>
 
-        <p className="description">
-          Recent BCA graduate currently pursuing MCA with hands-on experience
-          in Python, SQL, Oracle Database, React, Power BI and Cloud Computing.
-          Passionate about building modern applications and solving business
-          problems through technology.
+        <p>
+          MCA student with hands-on experience in Full Stack Development, Python,
+          Data Analytics, Databases, and Cloud Computing. Passionate about building
+          modern applications, analyzing data, and developing scalable software
+          solutions using React, FastAPI, SQL, Oracle Database, and cloud technologies.
         </p>
 
         <div className="hero-buttons">
@@ -60,14 +58,14 @@ function Hero() {
             download
             className="btn btn-primary"
           >
-            Download Resume
+            Download CV
           </a>
 
           <a
             href="#projects"
             className="btn btn-secondary"
           >
-            View Projects
+            Explore My Work
           </a>
 
         </div>
@@ -79,7 +77,7 @@ function Hero() {
       <div className="hero-right">
 
         <div className="image-card">
-          <img src={profile} alt="profile" />
+          <img src={profile} alt="Devaraj P" />
         </div>
 
         <div className="icon python">
@@ -99,7 +97,7 @@ function Hero() {
         </div>
 
         <div className="icon powerbi">
-            <FaChartBar />
+          <FaChartBar />
         </div>
 
       </div>
