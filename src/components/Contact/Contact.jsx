@@ -60,7 +60,7 @@ function Contact() {
         </div>
 
         <a
-          href="https://www.linkedin.com/in/deva-p-883651329"
+          href="https://www.linkedin.com/in/devaraj-p-883651329"
           target="_blank"
           rel="noreferrer"
           className="contact-card"
